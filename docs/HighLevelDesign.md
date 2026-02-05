@@ -125,28 +125,45 @@ Detaljerede og fagspecifikke data forbliver primært i de respektive satellitsys
 
 ---
 
-## 7. Security & Compliance (High Level)
+## 7. Tekniske beslutninger og præferencer
+- Udviklingssprog er primært .NET C#, men andre som JavaScript og Python kan også benyttes efter behov
+- Produktionsapplikationen skal køre på Azure-infrastruktur, enten via diverse Azure services eller VM i Azure
+- Udviklerværktøjet er VS Code på en Windows-maskine
+- Ethvert UI skal være webbaseret og primært til PC-browser, men også fungere på telefon
+- Alt data skal beskyttes med autentificering mod Entra ID, og kun brugere fra egen tenant må få adgang
+- Arkitektur skal være modulær og API-first for at understøtte løbende udvidelser
+- Integrationer bør som udgangspunkt ske via REST API’er; event-baserede mønstre kan bruges hvor det giver værdi
+- Data bør lagres i Azure-tjenester med høj tilgængelighed; konkret databasetype fastlægges senere
+- Logging og monitorering skal være centraliseret (fx Application Insights/Azure Monitor)
+- CI/CD bør automatiseres og køre via Azure DevOps eller GitHub Actions
+- Infrastruktur bør beskrives som kode (fx Bicep/Terraform) for reproducerbarhed
+- Miljøer skal adskilles tydeligt (dev, test, prod) med isolerede ressourcer
+- Secrets og nøgler skal håndteres sikkert (fx Azure Key Vault)
+
+---
+
+## 8. Security & Compliance (High Level)
 - Integration med eksisterende identitets- og adgangsstyring
 - Rollebaseret adgang til funktioner og data
 - Overholdelse af gældende sikkerheds- og compliancekrav (fx ISO 27001)
 
 ---
 
-## 8. Assumptions
+## 9. Assumptions
 - Eksisterende systemer forbliver system of record
 - Integrationer baseres primært på API’er
 - Løsningen skal kunne udvides gradvist
 
 ---
 
-## 9. Risks & Considerations
+## 10. Risks & Considerations
 - Kompleksitet i integrationer
 - Afhængighed af eksterne systemers stabilitet og API-kvalitet
 - Brugeradoption og ændring af arbejdsgange
 
 ---
 
-## 10. Future Considerations
+## 11. Future Considerations
 - Udvidelse med yderligere automatiseringer
 - Avanceret kundeindsigt og rapportering
 - AI-baserede assistenter og beslutningsstøtte
